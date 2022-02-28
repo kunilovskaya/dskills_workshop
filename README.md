@@ -1,4 +1,5 @@
-##Digital Skills for Research
+## Digital Skills for Research
+
 Contents of the workshop
 
 Maria Kunilovskaya (thanks to the RGCL for the opportunity to brush up and systematise these)
