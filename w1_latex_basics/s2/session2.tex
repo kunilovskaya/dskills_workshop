@@ -1,0 +1,66 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{hyperref}
+
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=15mm,
+}
+
+\title{Session 2. Text and math}
+\author{Digital Skills for Researchers}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Text formatting}
+
+\subsection{Explore the interface of your \TeX~editor}
+
+\subsection{Languages, fonts, colors}
+
+font families (\textrm,\textbf,\textit, \textsl, \textsc, \texttt, \textsf, \textnormal, \underline)
+font sizes (tiny, scriptsize, footnotesize, small, normalsize, large, Large, LARGE, huge, Huge)
+\textsc{Encyclopedia Galactica}
+\texttt{Don't Panic} 
+\underline{It begins with a house.}
+
+\section{Special characters}
+The following characters are reserved to have special meaning in \LaTeX:
+
+\$ \% \& \verb|~| \verb|^| \{ \} \_ $\backslash$ 
+
+To print them literally you need to escape them with backslash ($\backslash$), except
+\begin{itemize}
+	\item for $\backslash$ itself use \verb|$\backslash$|
+	\item for \verb|~| and \verb|^| Use \verb|\verb| 
+\end{itemize}
+ 
+quotes, ` \lq and ‘ \rq 
+\verb|| command for inline verbatim mode
+
+\ldots
+
+subscripts and superscripts
+Proceedings of the 11\textsuperscript{th} conference\ldots
+
+ligatures
+accents \^{}, \'{}, \v{}, \"{}, \c{}, \~{}
+language-specific \ss{}, \l{}, \L{}
+
+In writing and typography, a ligature occurs where two or more graphemes or letters are joined as a single glyph
+
+
+
+
+\section{Math}
+
+
+\end{document}

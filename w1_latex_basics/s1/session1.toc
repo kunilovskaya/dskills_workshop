@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}What's \TeX }{1}{section.1}%
+\contentsline {section}{\numberline {2}Online solution: Overleaf account and project}{2}{section.2}%
+\contentsline {section}{\numberline {3}First document: layout and structure}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Moving text around}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Adding structural elements}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Layout}{3}{subsection.3.3}%

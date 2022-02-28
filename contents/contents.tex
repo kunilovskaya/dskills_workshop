@@ -1,0 +1,152 @@
+%--------------------
+% Preamble
+
+% Declare the type of document
+% -------------------
+
+\documentclass[a4paper,12pt]{article} % {report, book, article, letter, beamer}
+
+%--------------------
+% Import packages
+% -------------------
+
+\usepackage[utf8]{inputenc}  % specify the encoding
+\usepackage{hyperref} % allow cross-referencing
+\usepackage{geometry} % set the layout
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+\usepackage{xcolor} % alow color for text
+\usepackage{tcolorbox} % make boxes
+\usepackage{multicol} % columns
+
+\usepackage{graphicx} % insert pictures
+
+%--------------------
+% Define new commands and settings
+% -------------------
+
+% TeX logo as defined by Donald Knuth in the TeXbook (1984)
+\def\TeX{{\rm T\kern-.1667em\lower.5ex\hbox{E}\kern-.125emX }}
+\newcommand{\llogo}{\LaTeX }
+
+\setlength\parindent{0pt} % don't indent new paragraphs
+
+%--------------------
+% Setup the title of the document
+% -------------------
+
+\title{Digital Skills for Researchers}
+\author{Maria Kunilovskaya\thanks{thanks to the RGCL for the opportunity to brush up and systematise these}}
+\date{02 March - 25 March, 2022}
+
+\begin{document}
+	
+	\maketitle
+
+\vspace{-2em}
+
+\section{{\color{red}\TeX and \LaTeX}}
+
+\subsection{Week 1. Setup and basics}
+	Session 1. Why \TeX and first doc (talk, tex, task)
+		\begin{itemize}
+			\item What's \TeX (distributions, editors, engines, formats, templates)
+			\item Overleaf account and project
+			\item First document (class, packages, layout, title, structure, content, fonts, margins, columns)
+		\end{itemize} 
+	Session 2. Text and math (talk, tex, task)
+		\begin{itemize}
+			\item Text formatting
+			\item Special characters
+			\item Math
+		\end{itemize}
+
+\subsection*{Week 2. Environments and non-text elements}
+	Session 3. Tables and figures (talk, tex, task)
+			\begin{itemize}
+				\item Environments
+				\item Tables
+				\item Graphics and drawing
+			\end{itemize}
+	Session 4. Customisation, cross-referencing and templates (talk, tex, task)
+			\begin{itemize}
+				\item Own commands
+				\item Internal and external links
+				\item Templates and big projects
+			\end{itemize}
+		
+\vfill
+
+\subsection*{Week 3. Beamer and bibs}
+	Session 5. Presentations and posters (talk, tex, task)
+	\begin{itemize}
+		\item 
+		\item
+		\item
+	\end{itemize}
+	Session 6. Bibliographies (talk, tex, task)
+	\begin{itemize}
+		\item 
+		\item
+		\item
+	\end{itemize}	
+
+
+\section{{\color{red}Week 4. Mendeley and Github}}
+	Session 7. Reference management: Mendeley (talk, tex, task)
+	
+	\begin{itemize}
+		\item 
+		\item
+		\item
+	\end{itemize}%
+ Session 8. Version control and collaboration: Github (talk, tex, task)
+	\begin{itemize}
+		\item .md
+		\item 
+		\item
+	\end{itemize}
+
+
+\begin{center}
+
+\begin{tcolorbox}[width=\textwidth, colback={yellow!40!white}, title={\textbf{Housekeeping}}, colbacktitle=yellow!60!white, coltitle=black]
+	
+	\begin{multicols}{2}
+
+		\begin{itemize}
+			\item \href{https://wlv.instructure.com/courses/33429/pages/latex-and-mendeley-workshop}{Schedule (with rooms)}: Wed, Fri 10am-11am, live sessions
+			\item \href{https://canvas.wlv.ac.uk/courses/31120/files/folder/LaTeX\%20Workshop}{Canvas materials}, inc. 8 assignments 
+			\item achievement levels: confident \llogo user, familiar with \LaTeX, basic \llogo skills (report completion in a \href{}{google doc})
+			\item send me a whatsup message: \\ +44 7926 446507 or $\rightarrow$
+		\end{itemize}
+	
+	\columnbreak
+	\centering
+	 \includegraphics[width=40mm]{maria_ku_whatsup_contact}%
+
+
+\end{multicols}
+\end{tcolorbox}%
+
+\bigskip%
+
+	
+\maketitle\graphicspath{ {./images/} }
+\begin{tcolorbox}[width=\textwidth, colback={white}, title={\textbf{Recommended resources}}, colbacktitle=white, coltitle=black]
+	\begin{itemize}
+	\item \textbf{LaTeX}: \href{https://tug.org/begin.html}{\TeX UsersGroup} and \href{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{Overleaf} tutorials
+	\item \textbf{GitHub}: \href{https://git-scm.com/book/en/v2}{Pro Git book by Scott Chacon and Ben Straub} and \href{https://docs.github.com/en/get-started}{Get started from github.com}
+	\item \textbf{Mendeley}: \href{https://www.mendeley.com/guides}{Official Guides}
+	
+\end{itemize}
+	
+\end{tcolorbox}%
+
+\end{center}
+
+\end{document}
