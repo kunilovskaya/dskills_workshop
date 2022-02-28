@@ -1,0 +1,61 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{hyperref}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=30mm,
+	top=30mm,
+	bottom=20mm,
+	right=15mm
+}
+\setlength\parindent{0pt} % set indent to 0
+
+\usepackage{listings}  % a verbatim environment which can break lines
+\usepackage{tcolorbox}
+
+% multilang support
+%--------------------------------------
+\usepackage[T1,T2A]{fontenc}
+\usepackage[german,greek,french,english,russian]{babel}
+%--------------------------------------
+
+
+\title{Practical tasks for Session 2. Text and Math}
+\author{YOUR NAME}
+\date{CURRENT DATE}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Multilingual input}
+The structure of this document is in my mother tongue: {\color{blue} Russian} (insert your actual L1 (or C2) other than English).
+
+These phrases are in other languages (each phrase is a new paragraph, there is a vertical space before the first example): 
+
+\bigskip
+
+{\color{red}Français}: L'entropie de Shannon, due à Claude Shannon, est une fonction mathématique qui, intuitivement, correspond à la quantité d'information contenue ou délivrée par une source d'information.
+
+\foreignlanguage{german}{{\color{red}Deutsch}: Entropie (nach dem Kunstwort \foreignlanguage{greek}{ἐντροπία}) ist in der Informationstheorie ein Maß, welches für eine Nachrichtenquelle den mittleren Informationsgehalt ausgegebener Nachrichten angibt.}~\footnote{this text is taken from multilingual Wikipedia: https://en.wikipedia.org/wiki/Entropy\_(information\_theory)}
+
+\section{Document layout}
+
+This document \footnote{this is a just an exercise} has top margin of 3 cm, left - 3 cm, right 1.5 cm, bottom 2 cm.
+
+
+\section{Formula from Wikipedia}
+In information theory, the entropy of a random variable is the average level of ``information'', ``surprise'', or ``uncertainty'' inherent to the variable's possible outcomes. Given a discrete random variable $X$, with possible outcomes $x_{1},...,x_{n}$, which occur with probability$\mathrm {P} (x_{1}),...,\mathrm {P} (x_{n})$, the entropy of $X$ is formally defined as:
+
+\[ \mathrm {H} (X)=-\sum _{i=1}^{n}{\mathrm {P} (x_{i})\log \mathrm {P} (x_{i})} \]
+
+where $\Sigma$ denotes the sum over the variable's possible values. 
+
+
+\end{document}

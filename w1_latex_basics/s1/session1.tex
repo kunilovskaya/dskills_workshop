@@ -6,8 +6,6 @@
 
 \usepackage{hyperref}
 
-\usepackage{layout}
-
 \usepackage{geometry}
 \geometry{
 	a4paper,
@@ -31,6 +29,7 @@
 
 \begin{document}
 
+
 \maketitle
 
 \tableofcontents
@@ -45,12 +44,11 @@
 	\TeX is a typesetting language. It makes text look good on the page. 
 	\medskip
 	
-	
 	A *.tex file is a plain text file which contains text with explicit formatting commands (e.g. \texttt{$\backslash$textbf}). WYSIWYM (what you see is what you mean) concept.
 	
 	The *.tex file has to be run by a compiler to produce formatted version.
-	
 	\medskip
+	
 	It is required by many publishing venues, makes inputting mathematics, bibliographies and cross-referencing easier, ensures consistency across sections.
 	
 \end{tcolorbox}   
@@ -69,6 +67,7 @@
 
 \vspace{1em}
 
+\newpage
 
 \textbf{\Large{Examples of complete desktop systems:}}\label{desktops}
 \begin{itemize}
@@ -99,11 +98,17 @@ Go to \href{https://www.overleaf.com/}{Overleaf}, register an account and start 
 % Document structure
 % -------------------
 
-\section{First document: layout and structure}a verbatim environment which can break lines
+\section{First document: layout and structure}
 % 10 min
 A .tex consists of 
 \begin{itemize}
-	\item \emph{preamble}: imported styles and packages, defined  functions
+	\item \emph{preamble} contains:
+	\begin{itemize}
+		\item[-] classes (e.g. \texttt{llncs.cls})
+		\item[-] styles (\texttt{emnlp2021.sty} for \verb|\usepackage[review]{emnlp2021}|) 
+		\item[-] packages
+		\item[-] defined  functions
+	\end{itemize}
 	\item \emph{main code} (inside \verb|\begin{document} ... \end{document}|) with textual content, math, pics, tables interspersed with formatting commands, inc. environment%
 	\item \emph{commented content}: use \% to comment out lines and \texttt{CTRL + T} to toggle comment/uncomment selected lines
 \end{itemize}
@@ -119,7 +124,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilis
 \bigskip
 
 \begin{itemize}
-	\item \emph{Blank line} is a new paragraph separator, which affects the behaviour of space-managing commands. Or use \verb|\\|.
+	\item \emph{Blank line} (\verb|\\|) is a new paragraph separator; it affects the behaviour of space-related commands.
 	\item Insert customised vertical or horizontal space with \emph{commands}:
 	\begin{itemize}
 		\item[a)] \verb|\vspace{.5cm}, \hspace{1em}, \vfill|
@@ -135,10 +140,10 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilis
 \subsection{Adding structural elements}
 % 10 min
 \begin{enumerate}
-	\item {\color{red}frontmatter (inc. \verb|\title{}, \author{}, \date{}|)} is defined in preamble and called with \verb|\maketitle|
+	\item {\color{red}frontmatter (\verb|\title{}, \author{}, \date{}|)} in preamble; called with \verb|\maketitle|
 	\item \verb|\section{First Section}\label{sec:one}, \subsection{Your subtitle}|
 	\item \verb|\begin{abstract} ... \end{abstract}|
-	\item \verb|\tableofcontents|
+	\item \verb|\tableofcontents| and add unnumbered sections to TOC with \\ \verb|\addcontentsline{toc}{section}{your_name_of_the_section}|. Compile several times!
 	\item \verb|\footnote[**]{your text in foot}|
 %	\item {\color{red}columns} in part of the document: \verb|\usepackage{multicol}| + \\ \verb|\begin{multicols}{2} ... \columnbreak ... \a verbatim environment which can break linesend{multicols}|
 %	\item {\color{red}boxed text}: \verb|\usepackage{tcolorbox}| + \\ \verb|\begin{tcolorbox}[width=\textwidth, colback={yellow!40!white},| \\ \verb|title={}, colbacktitle=yellow!60!white, coltitle=black] ... \end{tcolorbox}|
@@ -148,17 +153,18 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilis
 
 \subsection{Layout}
 % 10 min
-\textbf{Default \LaTeX{} layout} \\
-with \verb|\layout| after adding \verb|\usepackage{layout}| to the preamble
-
-\layout
-
-\setlength{\headheight}{22pt} 
-\setlength{\marginparwidth}{0pt}
-\setlength{\marginparsep}{0pt}
-\setlength{\textheight}{631pt}
 
 \textbf{Setting the page size in preamble with}:
+
+\bigskip
+
+\verb|\usepackage[a4paper, total={6in, 8in}]{geometry}|
+
+\bigskip
+
+or
+
+\bigskip
 
 \begin{lstlisting}[breaklines]
 \usepackage{geometry}
@@ -171,23 +177,11 @@ top=15mm,
 \end{lstlisting}
 
 
-\textbf{Customised \LaTeX{} layout (no space for margin notes, bigger header, bigger bottom)} \\
 
-achieved with:
+\section*{Task 1}
+\label{task}
+\addcontentsline{toc}{section}{Task 1}
 
-\begin{lstlisting}[breaklines]
-\setlength{\headheight}{22pt} 
-\setlength{\marginparwidth}{0pt}
-\setlength{\marginparsep}{0pt}
-\setlength{\textheight}{631pt}
-\end{lstlisting}
-
-\begin{center}
-	\layout*
-\end{center}
-
-
-\section*{Assignment 1}
 \begin{tcolorbox}[width=\textwidth, colback={yellow!40!white}, title={}, colbacktitle=yellow!60!white, coltitle=black]
 	\begin{itemize}
 		\item Get the software: select and install a LaTeX distribution and an editor (see discussion on page \ref{desktops})

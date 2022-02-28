@@ -1,7 +1,8 @@
 \documentclass[a4paper,11pt]{article}
 
-\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
 
+\usepackage{hyperref}
 
 \usepackage{geometry}
 \geometry{
@@ -10,9 +11,20 @@
 	left=20mm,
 	top=15mm,
 }
+\setlength\parindent{0pt} % set indent to 0
 
-\title{Session 2. Text and math}
-\author{Digital Skills for Researchers}
+\usepackage{listings}  % a verbatim environment which can break lines
+\usepackage{tcolorbox}
+
+% multilang support
+%--------------------------------------
+\usepackage[T1,T2A]{fontenc}
+\usepackage[spanish,french,russian,main=english]{babel}
+%--------------------------------------
+
+
+\title{Session 2. Text and Math}
+\author{Digital Skills for Research}
 \date{\today}
 
 \begin{document}
@@ -20,19 +32,75 @@
 \maketitle
 \tableofcontents
 
+\section{Explore the interface of your desktop \TeX~editor}
+
+\begin{itemize}
+	\item line numbers are useful for fixing errors
+	\item use the toolbar to insert typical commands, if you prefer
+\end{itemize}
+
 \section{Text formatting}
 
-\subsection{Explore the interface of your \TeX~editor}
+\subsection{Languages}
 
-\subsection{Languages, fonts, colors}
+ \href{https://www.overleaf.com/learn/latex/International_language_support}{International language support}
 
-font families (\textrm,\textbf,\textit, \textsl, \textsc, \texttt, \textsf, \textnormal, \underline)
-font sizes (tiny, scriptsize, footnotesize, small, normalsize, large, Large, LARGE, huge, Huge)
-\textsc{Encyclopedia Galactica}
-\texttt{Don't Panic} 
-\underline{It begins with a house.}
+\begin{lstlisting}[breaklines]
+\usepackage[T1, T2A]{fontenc}
+\usepackage[french,russian,main=english]{babel}
+\end{lstlisting}
 
-\section{Special characters}
+\begin{description}
+	\item[T1] encoding for Latin script
+	\item[T2A] encoding for Cyrillic script
+\end{description}
+
+\begin{itemize}
+	\item You might want to install languages to your local \TeX distribution with \\ \verb|sudo apt install texlive-lang-polish|
+	\item You might need to specifically import fonts for other languages.
+	\item NB! main (or last one) in \verb|\usepackage[french,russian,main=english]{babel}| is the language for automatic structural elements (e.g. Contents)
+	\item In some templates short text snippets in non-main language are inserted with
+	\verb|\foreignlanguage{spanish}{...}| 
+\end{itemize}
+
+Examples in Spanish and Russian:
+
+\begin{center}
+	\begin{quote}
+		\foreignlanguage{spanish}{Sección Introductoria} 
+		
+		\foreignlanguage{russian}{Спасибо.}
+	\end{quote}
+	
+	Sección Introductoria
+	Спасибо.
+\end{center}
+
+\subsection{Fonts and colours}
+
+\begin{description}
+	\item[font style] roman (serif), bold, italics, typewriter, sans serif, small caps respectively in \\
+	\verb|\textrm,\textbf,\textit, \texttt, \textsf, \textsc|
+	
+	e.g. \textsc{Encyclopedia Galactica} 
+	
+	\texttt{Don't Panic}
+	
+	\item[font size] \verb|\tiny, \scriptsize, \footnotesize, \small, \normalsize, \large, \Large, \LARGE, \huge, \Huge| \\
+	e.g. cf. \verb|\huge{text formatting}| and \verb|\tiny{text formatting}|: \\
+	\huge{text formatting} \\
+	\tiny{text formatting}
+	\normalsize
+	
+	\item[underline] \underline{Google srtikethrough!}
+	
+	\item[font colour] \verb|{\color{red!50!white}your_coloured_text}| \\
+	 e.g. {\color{red!50!white}my pink text}
+ 
+\end{description}
+
+
+\subsection{Special characters}
 The following characters are reserved to have special meaning in \LaTeX:
 
 \$ \% \& \verb|~| \verb|^| \{ \} \_ $\backslash$ 
@@ -42,25 +110,91 @@ To print them literally you need to escape them with backslash ($\backslash$), e
 	\item for $\backslash$ itself use \verb|$\backslash$|
 	\item for \verb|~| and \verb|^| Use \verb|\verb| 
 \end{itemize}
- 
-quotes, ` \lq and ‘ \rq 
-\verb|| command for inline verbatim mode
 
-\ldots
+\textbf{Formatting conventions:}
 
-subscripts and superscripts
-Proceedings of the 11\textsuperscript{th} conference\ldots
+\begin{itemize}
+	\item quotes: use \` and \' or \verb|\lq| and \verb|\rq| 
+	\item non-breaking space: \verb|Fig.~\ref{fig:logo}|
+	\item dots: \verb|\ldots|
+	\item superscripts and subscripts: \verb|2^2 and CO_2| $\rightarrow$ $2^2$, $CO_2$
+	
+	e.g. Proceedings of the 11\textsuperscript{th} conference\ldots
+	
+	\item accents: \verb|\^{a}, \'{o}, \v{c}, \"{e}, \~{o}| $\rightarrow$ \^{a}, \'{o}, \v{c}, \"{e}, \~{o}
+	\item language-specific ligatures: \verb|\ss{}, \l{}, \L{}| $\rightarrow$ \ss{}, \l{}, \L{}
+\end{itemize}
 
-ligatures
-accents \^{}, \'{}, \v{}, \"{}, \c{}, \~{}
-language-specific \ss{}, \l{}, \L{}
-
-In writing and typography, a ligature occurs where two or more graphemes or letters are joined as a single glyph
-
-
-
+\textbf{Useful tool: \href{http://detexify.kirelabs.org/symbols.html}{Detexify} symbol table and classifier}
 
 \section{Math}
+
+\subsection{Mathmode}
+
+\begin{itemize}
+	\item inline: \verb|$your_formula$|
+	\item on a separate line: \verb|\[your_formula\]|
+	\item special environment with a counter in label: \verb|\begin{equation} ... \end{equation}|
+\end{itemize}
+
+This formula $f(x)=5x$ is incorporated in the body of text. It is the same as in the environment~\ref{eq:same}
+
+\[ f(x)=5x \]
+
+\begin{equation}\label{eq:same}
+f(x)=5x
+\end{equation}
+
+\subsection{Fractions}
+
+\[\frac{1+\frac{4}{2}}{6} = 0,5\]
+
+\subsection{Brackets}
+
+\[ \left(2+\frac{9}{3}\right) \times 5 = 25 \]
+
+\[  [2+3]  \]
+
+\[ \{2+3\}  \]
+
+\subsection{Standard functions}
+
+$\sin x = 0$, $\cos x = 1$, $\ln x = 5$
+
+\subsection{Symbols}
+
+$2\times 2 \ne 5$
+
+$A \cap B$, $A \cup B$
+
+\subsection{Characters from other scripts}
+
+$\tg \Phi = 1$
+
+$\epsilon$, $\phi$
+
+\bigskip
+
+
+\textbf{{\color{red}Copy formatted formulas from html source code}} (Inspect $\rightarrow$ Copy $\rightarrow$ Copy element):
+
+ \href{https://en.wikipedia.org/wiki/Second_law_of_thermodynamics}{Second Law of Thermodynamics}
+ 
+\[\mathrm {d} S={\frac {\delta Q}{T}}-{\frac {1}{T}}\sum _{j}\,\Xi _{j}\,\delta \xi _{j}\]
+
+
+
+\section*{Task 2}
+\label{task}
+\addcontentsline{toc}{section}{Task 2}
+
+\begin{tcolorbox}[width=\textwidth, colback={yellow!40!white}, title={}, colbacktitle=yellow!60!white, coltitle=black]
+	\begin{itemize}
+		\item Reproduce text formating on this \href{}{page}
+		\item Zip the project, upload it to Overleaf and share with m.kunilovskaia@wlv.ac.uk
+	\end{itemize}
+	
+\end{tcolorbox}%
 
 
 \end{document}
