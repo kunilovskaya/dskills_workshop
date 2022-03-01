@@ -37,31 +37,31 @@ Maria Kunilovskaya (thanks to the RGCL for the opportunity to brush up and syste
 
 ### Week 3. Beamer and bibs {#week-3.-beamer-and-bibs .unnumbered}
 
-#### Session 5. Presentations and posters (talk, tex, task)
+#### Session 5. Presentations and posters
 
--   
--   
--   
+- Beamer themes: layout and color  
+- Slides-specific commands  
+- Producing posters and own .sty  
 
-#### Session 6. Bibliographies (talk, tex, task)
+#### Session 6. Bibliographies
 
--   
--   
--   
+- Basics on referencing styles  
+- .bib files and bibliography engines 
+- Get References section
 
 ### Week 4. Mendeley and Github
 
-#### Session 7. Reference management: Mendeley (talk, tex, task)
+#### Session 7. Reference management: Mendeley
 
--   
--   
--   
+- Basic uses and setting up  
+- Integration (word processor, browser, project)  
+- Library work and maintenance  
 
-#### Session 8. Version control and collaboration: Github (talk, tex, task)
+#### Session 8. Version control and collaboration: Git and Github
 
--   .md
--
--
+- Keeping track of changes
+- Local and remote, push and pull
+- Markdown and arranging repos
 
 ### Housekeeping
 -   [Schedule (with rooms)](https://wlv.instructure.com/courses/33429/pages/latex-and-mendeley-workshop):
