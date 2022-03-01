@@ -66,8 +66,8 @@ Maria Kunilovskaya (thanks to the RGCL for the opportunity to brush up and syste
 ### Housekeeping
 -   [Schedule (with rooms)](https://wlv.instructure.com/courses/33429/pages/latex-and-mendeley-workshop):
     Wed, Fri 10am-11am, live sessions
--   achievement levels: confident LaTeXuser, familiar with LaTeX, basic
-    LaTeXskills (report completion in a [GoogleDoc]())
+-   achievement levels: confident LaTeX user, familiar with LaTeX, basic
+    LaTeX skills (report completion in a [GoogleDoc](https://docs.google.com/document/d/17ZBAQGBKIlO6JMwxz3LlghYq1sdsUjhHVXga46BK0kg/edit?usp=sharing))
 
 ### Recomended resources
 
