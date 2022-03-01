@@ -12,9 +12,7 @@ Maria Kunilovskaya (thanks to the RGCL for the opportunity to brush up and syste
 #### Session 1. Why TeX and first doc
 
 -   What's TeX (distributions, editors, engines, formats, templates)
-
 -   Overleaf account and project
-
 -   First document (class, packages, layout, title, sections, columns)
 
 #### Session 2. Text and math

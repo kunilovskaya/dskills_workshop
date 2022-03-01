@@ -1,3 +1,10 @@
+*.toc
+*.bbl
+*.blg
+*.log
+*.out
+*.aux
+
 github/
 latex/
 mendeley/
