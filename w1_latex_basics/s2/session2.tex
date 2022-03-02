@@ -53,13 +53,17 @@
 \usepackage[french,russian,main=english]{babel}
 \end{lstlisting}
 
+See specific packages names for individual languages \href{https://github.com/kunilovskaya/dskills_workshop/tree/main/alphabets}{here}. \\ For example, you need \verb|\usepackage{arabtex} and \usepackage[LFE,LAE]{fontenc}| for Arabic.
+
 \begin{description}
 	\item[T1] encoding for Latin script
 	\item[T2A] encoding for Cyrillic script
 \end{description}
 
 \begin{itemize}
-	\item You might want to install languages to your local \TeX distribution with \\ \verb|sudo apt install texlive-lang-polish|
+	\item You might want to install languages to your \textbf{local} \TeX distribution on Linux with \\ \verb|sudo apt install texlive-lang-polish| \\
+	or install them all \verb|sudo apt-get install -y texlive-lang-all|
+
 	\item You might need to specifically import fonts for other languages.
 	\item NB! main (or last one) in \verb|\usepackage[french,russian,main=english]{babel}| is the language for automatic structural elements (e.g. Contents)
 	\item In some templates short text snippets in non-main language are inserted with
