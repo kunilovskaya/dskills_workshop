@@ -60,14 +60,15 @@ Maria Kunilovskaya (thanks to the RGCL for the opportunity to brush up and syste
 #### Session 8. Version control and collaboration: Git and Github
 
 - Keeping track of changes
-- Local and remote, push and pull
+- Local and remote, push and pull, auth
 - Markdown and arranging repos
 
 ### Housekeeping
--   [Schedule (with rooms)](https://wlv.instructure.com/courses/33429/pages/latex-and-mendeley-workshop):
+-   Canvas: [Materials](https://canvas.wlv.ac.uk/courses/33429/files/folder/latex_mendeley_github); [Schedule](https://wlv.instructure.com/courses/33429/pages/latex-and-mendeley-workshop)
+
     Wed, Fri 10am-11am, live sessions
--   achievement levels: confident LaTeX user, familiar with LaTeX, basic
-    LaTeX skills (report completion in a [GoogleDoc](https://docs.google.com/document/d/17ZBAQGBKIlO6JMwxz3LlghYq1sdsUjhHVXga46BK0kg/edit?usp=sharing))
+-   Achievement Tracker: confident LaTeX user, familiar with LaTeX, basic
+    LaTeX skills (report your progress in [GoogleDoc](https://docs.google.com/document/d/17ZBAQGBKIlO6JMwxz3LlghYq1sdsUjhHVXga46BK0kg/edit?usp=sharing))
 
 ### Recomended resources
 
