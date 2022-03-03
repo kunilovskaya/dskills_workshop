@@ -5,8 +5,6 @@
 
 \usepackage[utf8]{inputenc}
 
-\usepackage{hyperref}
-
 \usepackage{geometry}
 \geometry{
 	a4paper,
@@ -14,10 +12,12 @@
 	left=20mm,
 	top=15mm,
 }
-\setlength\parindent{0pt} % set indent to 0
+\setlength\parindent{0pt} % set all indents to 0
 
-\usepackage{listings}  % a verbatim environment which can break lines
 \usepackage{tcolorbox}
+\usepackage{listings}  % a verbatim environment which can break lines unlike \verb||
+
+\usepackage[hidelinks]{hyperref} % no linky content is visible at all, except if hovering a mouse
 
 % multilang support
 %--------------------------------------
@@ -43,6 +43,7 @@
 \end{itemize}
 
 \section{Text formatting}
+
 
 \subsection{Languages}
 
@@ -115,14 +116,15 @@ The following characters are reserved to have special meaning in \LaTeX:
 To print them literally you need to escape them with backslash ($\backslash$), except
 \begin{itemize}
 	\item for $\backslash$ itself use \verb|$\backslash$|
-	\item for \verb|~| and \verb|^| Use \verb|\verb| 
+	\item for \verb|~| and \verb|^| Use them inside \verb|\verb||| 
 \end{itemize}
 
 \textbf{Formatting conventions:}
 
 \begin{itemize}
-	\item quotes: use \` and \' or \verb|\lq| and \verb|\rq| 
-	\item non-breaking space: \verb|Fig.~\ref{fig:logo}|
+	\item double quotes: tilde key (left uppermost key under Esc) without SHIFT and single quote twice $\rightarrow$ `` and ''
+	\item \verb|\lq| and \verb|\rq| or tilde key + single quote $\rightarrow$ \lq~and \rq or ` and '
+	\item non-breaking space (SHIFT + tilde key): \verb|Fig.~\ref{fig:logo}|
 	\item dots: \verb|\ldots|
 	\item superscripts and subscripts: \verb|2^2 and CO_2| $\rightarrow$ $2^2$, $CO_2$
 	
@@ -132,7 +134,7 @@ To print them literally you need to escape them with backslash ($\backslash$), e
 	\item language-specific ligatures: \verb|\ss{}, \l{}, \L{}| $\rightarrow$ \ss{}, \l{}, \L{}
 \end{itemize}
 
-\textbf{Useful tool: \href{http://detexify.kirelabs.org/symbols.html}{Detexify} symbol table and classifier}
+\textbf{Useful tool: \href{http://detexify.kirelabs.org/symbols.html}{Detexify} (\textcolor{red}{CLICK ME! I am linked!}) symbol table and classifier}
 
 \section{Math}
 
@@ -188,7 +190,6 @@ $\epsilon$, $\phi$
  \href{https://en.wikipedia.org/wiki/Second_law_of_thermodynamics}{Second Law of Thermodynamics}
  
 \[\mathrm {d} S={\frac {\delta Q}{T}}-{\frac {1}{T}}\sum _{j}\,\Xi _{j}\,\delta \xi _{j}\]
-
 
 
 \section*{Task 2. Reproduce a pdf formatting, inc. formulas}

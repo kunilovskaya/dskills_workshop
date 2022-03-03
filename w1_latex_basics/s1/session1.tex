@@ -25,7 +25,7 @@
 	RGCL, University of Wolverhampton, UK}
 \date{\today}
 
-\setlength\parindent{0pt} % set indent to 0
+\setlength\parindent{0pt} % set all indents to 0
 
 \begin{document}
 
@@ -130,7 +130,8 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilis
 		\item[a)] \verb|\vspace{.5cm}, \hspace{1em}, \vfill|
 		\item[b)] \verb|\bigskip, \medskip|
 	\end{itemize}
-	\item New paragraphs are indented by default. Add \verb|\setlength\parindent{0pt}| \emph{to preamble} to lose indentation
+	\item \textbf{New paragraphs (except the first) are indented by default.}  Use \verb|\usepackage{indentfirst}| to indent the first paragraph in addition to the default.
+	\item Add \verb|\setlength\parindent{0pt}| \emph{to preamble} to lose all indentation
 	\item Use \verb|\newpage| command to force a new page
 	\item centering with a command \verb|\centering| or an environment \verb|\begin{center}|
 	\item Use \emph{environments} to create ragged right/left text (e.g. \verb|\begin{flushright} ... \end{flushright}|)
