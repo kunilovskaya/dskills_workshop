@@ -64,15 +64,13 @@ Maria Kunilovskaya (thanks to the RGCL for the opportunity to brush up and syste
 - Markdown and arranging repos
 
 ### Housekeeping
--   Canvas: [Materials](https://canvas.wlv.ac.uk/courses/33429/files/folder/latex_mendeley_github); [Schedule](https://wlv.instructure.com/courses/33429/pages/latex-and-mendeley-workshop)
-
+- Canvas: [Materials](https://canvas.wlv.ac.uk/courses/33429/files/folder/latex_mendeley_github); [Schedule](https://wlv.instructure.com/courses/33429/pages/latex-and-mendeley-workshop)
     Wed, Fri 10am-11am, live sessions
--   Achievement Tracker: confident LaTeX user, familiar with LaTeX, basic
-    LaTeX skills (report your progress in [GoogleDoc](https://docs.google.com/document/d/17ZBAQGBKIlO6JMwxz3LlghYq1sdsUjhHVXga46BK0kg/edit?usp=sharing))
+- Submit your weekly assignments before the classes next week, and track your achievement in [GoogleDoc](https://docs.google.com/document/d/1XKaCl3-tRkNfoy1w6dSrqrQBBLLrpnnLBt1zi5KXec0/edit?usp=sharing))
 
 ### Recomended resources
 
--   **LaTeX**: [T-.1667em.5exE-.125emX UsersGroup](https://tug.org/begin.html) and
+-   **LaTeX**: [TeX UsersGroup](https://tug.org/begin.html) and
     [Overleaf](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes) tutorials
 -   **GitHub**: [Pro Git book by Scott Chacon and Ben Straub](https://git-scm.com/book/en/v2) and [Get started from  github.com](https://docs.github.com/en/get-started)
 -   **Mendeley**: [Official Guides](https://www.mendeley.com/guides)
