@@ -1,7 +1,7 @@
 % this is source code for one of the sessions in Digital Skills for Research Workshop (EMTTI, University of Wolverhampton)
 % March 2022, Maria Kunilovskaya (mkunilovskaya@gmail.com)
 
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,11pt,leqno]{article}
 
 \usepackage[utf8]{inputenc}
 
@@ -17,7 +17,8 @@
 \usepackage{tcolorbox}
 \usepackage{listings}  % a verbatim environment which can break lines unlike \verb||
 
-\usepackage[hidelinks]{hyperref} % no linky content is visible at all, except if hovering a mouse
+%\usepackage[hidelinks]{hyperref} % no linky content is visible at all, except if hovering a mouse
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan, filecolor=magenta]{hyperref}
 
 % multilang support
 %--------------------------------------
@@ -125,7 +126,8 @@ To print them literally you need to escape them with backslash ($\backslash$), e
 	\item double quotes: tilde key (left uppermost key under Esc) without SHIFT and single quote twice $\rightarrow$ `` and ''
 	\item \verb|\lq| and \verb|\rq| or tilde key + single quote $\rightarrow$ \lq~and \rq or ` and '
 	\item non-breaking space (SHIFT + tilde key): \verb|Fig.~\ref{fig:logo}|
-	\item dots: \verb|\ldots|
+	\item dots: \verb|\ldots| $\rightarrow$ \ldots
+	\item dash: \verb|--| $\rightarrow$ --
 	\item superscripts and subscripts: \verb|2^2 and CO_2| $\rightarrow$ $2^2$, $CO_2$
 	
 	e.g. Proceedings of the 11\textsuperscript{th} conference\ldots
@@ -143,40 +145,49 @@ To print them literally you need to escape them with backslash ($\backslash$), e
 \begin{itemize}
 	\item inline: \verb|$your_formula$|
 	\item on a separate line: \verb|\[your_formula\]|
-	\item special environment with a counter in label: \verb|\begin{equation} ... \end{equation}|
+	\item special environment with a counter in label: \verb|\begin{equation}\label{eq:entropy} ... \end{equation}|
 \end{itemize}
 
-This formula $f(x)=5x$ is incorporated in the body of text. It is the same as in the environment~\ref{eq:same}
+This formula $f(x)=5x$ is incorporated in the body of text. 
+
+This is the same formula on a separate line:
 
 \[ f(x)=5x \]
+
+This is the same formula in the environment (notice the number on the right/left!). See equation~\ref{eq:same}. You can move the number to the left by adding leqno as an optional argument to the class definition \verb|\documentclass[a4paper,11pt,leqno]{article}| 
 
 \begin{equation}\label{eq:same}
 f(x)=5x
 \end{equation}
 
 \subsection{Fractions}
+\verb|\[\frac{1+\frac{4}{2}}{6} = 0,5\]|
 
 \[\frac{1+\frac{4}{2}}{6} = 0,5\]
 
 \subsection{Brackets}
+\verb|\[ \left(2+\frac{9}{3}\right) \times 5 = 25 \]|
 
 \[ \left(2+\frac{9}{3}\right) \times 5 = 25 \]
 
 \[  [2+3]  \]
 
+\verb|\[ \{2+3\}  \]|
 \[ \{2+3\}  \]
 
 \subsection{Standard functions}
-
+\verb|$\sin x = 0$, $\cos x = 1$, $\ln x = 5$|
 $\sin x = 0$, $\cos x = 1$, $\ln x = 5$
 
 \subsection{Symbols}
+\verb|$2\times 2 \ne 5$|
 
 $2\times 2 \ne 5$
 
 $A \cap B$, $A \cup B$
 
 \subsection{Characters from other scripts}
+\verb|$\epsilon$, $\phi$|
 
 $\tg \Phi = 1$
 
@@ -184,13 +195,16 @@ $\epsilon$, $\phi$
 
 \bigskip
 
+There are useful tools that reduce the sufferings:
 
-\textbf{{\color{red}Copy formatted formulas from html source code}} (Inspect $\rightarrow$ Copy $\rightarrow$ Copy element):
-
- \href{https://en.wikipedia.org/wiki/Second_law_of_thermodynamics}{Second Law of Thermodynamics}
- 
-\[\mathrm {d} S={\frac {\delta Q}{T}}-{\frac {1}{T}}\sum _{j}\,\Xi _{j}\,\delta \xi _{j}\]
-
+\begin{enumerate}
+	\item \href{https://latexeditor.lagrida.com/}{Online Equation Editor} 
+	\item \textbf{{\color{red}Copy formatted formulas from html source code}} (Inspect $\rightarrow$ Copy $\rightarrow$ Copy element):
+	
+	\href{https://en.wikipedia.org/wiki/Second_law_of_thermodynamics}{Second Law of Thermodynamics}
+	
+	\[\mathrm {d} S={\frac {\delta Q}{T}}-{\frac {1}{T}}\sum _{j}\,\Xi _{j}\,\delta \xi _{j}\]
+\end{enumerate}
 
 \section*{Task 2. Reproduce a pdf formatting, inc. formulas}
 \label{task}
