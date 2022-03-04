@@ -5,6 +5,8 @@
 *.out
 *.aux
 
+task2.tex
+
 github/
 latex/
 mendeley/
