@@ -14,17 +14,18 @@
 }
 \setlength\parindent{0pt} % set all indents to 0
 
+
+% multilingual support; load early in the preamble as some packages (e.g. listings) complain 
+%--------------------------------------
+\usepackage[T1,T2A]{fontenc}
+\usepackage[spanish,french,russian,main=english]{babel}
+%--------------------------------------
+
 \usepackage{tcolorbox}
 \usepackage{listings}  % a verbatim environment which can break lines unlike \verb||
 
 %\usepackage[hidelinks]{hyperref} % no linky content is visible at all, except if hovering a mouse
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan, filecolor=magenta]{hyperref}
-
-% multilang support
-%--------------------------------------
-\usepackage[T1,T2A]{fontenc}
-\usepackage[spanish,french,russian,main=english]{babel}
-%--------------------------------------
 
 
 \title{Session 2. Text and Math}
@@ -41,6 +42,8 @@
 \begin{itemize}
 	\item line numbers are useful for fixing errors
 	\item use the toolbar to insert typical commands, if you prefer
+	\item right-click on the name of the package to go to its documentation
+	\item use use of auto-complete
 \end{itemize}
 
 \section{Text formatting}
@@ -139,7 +142,7 @@ To print them literally you need to escape them with backslash ($\backslash$), e
 \textbf{Useful tool: \href{http://detexify.kirelabs.org/symbols.html}{Detexify} (\textcolor{red}{CLICK ME! I am linked!}) symbol table and classifier}
 
 \section{Math}
-\today
+
 \subsection{Mathmode}
 
 \begin{itemize}
@@ -177,7 +180,7 @@ f(x)=5x
 
 \subsection{Standard functions}
 \verb|$\sin x = 0$, $\cos x = 1$, $\ln x = 5$|
-$\sin x = 0$, $\cos x = 1$, $\ln x = 5$\today
+$\sin x = 0$, $\cos x = 1$, $\ln x = 5$
 
 \subsection{Symbols}
 \verb|$2\times 2 \ne 5$|
