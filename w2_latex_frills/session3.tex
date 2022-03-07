@@ -14,9 +14,9 @@
 }
 \setlength\parindent{0pt} % set all indents to 0
 
-\usepackage{tcolorbox}
-\usepackage{listings}  % a verbatim environment which can break lines unlike \verb||
-\usepackage{multicol} % allows columns environment
+\usepackage[listingsutf8]{tcolorbox} % \tcbuselibrary{listingsutf8}
+%\usepackage{listings}  % a verbatim environment which can break lines unlike \verb||
+\usepackage{multicol} % allows columns environment, you can also use minipage for columns
 
 \usepackage{blindtext}
 \usepackage{float} % allows \begin{table}[H] for placing tables exactly where you want them
@@ -27,7 +27,6 @@
 % Packages for additional or modified environments
 % -------------------
 \usepackage{enumerate} % for advanced enumeration: \begin{enumerate}[a)], [i], [1.], [A], [I)], [1)]
-
 
 %--------------------
 % Packages to work with tables
@@ -62,6 +61,37 @@
 
 \tableofcontents
 
+\section*{Key concepts and commands covered in Week 1}
+\addcontentsline{toc}{section}{Key concepts and commands covered in Week 1}
+
+Reflect on your progress and see whether you know how to:
+
+\bigskip
+
+\tcbset{colback=blue!5!white,colframe=blue!50!black!40}
+\begin{tcolorbox}[width=.475\textwidth, nobeforeafter,height=6.5cm,valign=center, fonttitle=\bfseries,title=Session 1]
+		\begin{enumerate}
+		\item migrate btw desktop/online editors
+		\item define the document margins
+		\item create structure (sections) and ToC
+		\item comment out several lines
+		\item typeset the title and authors
+		\item create columns
+		\item adjust the text positionally 
+	\end{enumerate}
+\end{tcolorbox}\hfill
+%
+\begin{tcolorbox}[width=.475\textwidth, nobeforeafter,height=6.5cm,valign=center,fonttitle=\bfseries,title=Session 2]
+	\begin{enumerate}
+		\item write in several natural languages
+		\item deal with special char
+		\item use fonts, color, size
+		\item use typesetting conventions for quotes, dash, non-breaking space
+		\item find commands for symbols
+		\item use mathmode and typeset formulas
+	\end{enumerate}
+\end{tcolorbox}
+
 \section{Environments}
 
 \subsection{LISTs!}
@@ -78,7 +108,7 @@ Three predefined types of list environments: \verb|\begin{itemize}, \begin{enume
 
 \verb|\begin{center} ... \end{center}|
 
-\begin{center}https://tinyurl.com/yf8orxog
+\begin{center}
 CENTRED TEXT\\
 \textbf{Environments are used to apply formatting to blocks of text.}
 \end{center}
@@ -116,23 +146,21 @@ Text between == is printed inside \begin{verbatim} environment.
 	\thispagestyle{empty}
 	
 	In Section~\ref{sec:tabs} we will look at some principles of arranging tables.
-	\usetikzlibrary{calc, positioning, shapes.arrows}
+
 	\columnbreak 
-	This is source code for a basic table:
+	This is source code \\ for a basic table:
 	\begin{verbatim}
 		\begin{tabular}{ c c c } 
 		cell1 & cell2 & cell3 \\ 
 		cell4 & cell5 & cell6 \\ 
 		cell7 & cell8 & cell9 \\ 
-		\end{tabular}%\usepackage{pgfplots}
-		%\usepackage{pgfplotstable}
+		\end{tabular}
 	\end{verbatim}
 
-	
 	\columnbreak
 	This is how it compiles:
 	\begin{tabular}{ c c c } 
-		cell1 & cell2 & cell3 \\ \usetikzlibrary{calc, positioning, shapes.arrows}
+		cell1 & cell2 & cell3 \\
 		cell4 & cell5 & cell6 \\ 
 		cell7 & cell8 & cell9 \\ 
 	\end{tabular}
@@ -142,27 +170,24 @@ Text between == is printed inside \begin{verbatim} environment.
 
 \section{A special case: Tables}\label{sec:tabs}
 
-See Wizards and Latex tabs in your \TeX editor!
+See Wizards and Latex tabs in your \TeX~editor!
 
 \subsection{Basic commands for tables formatting}
 \begin{enumerate}[A)]
-	\item horisontal lines with \verb|\hline|
-	\item vertical lines are lines in c%\usepackage{pgfplots}
-	%\usepackage{pgfplotstable}all parameters: \verb-\begin{tabular}{l|c|r|}-;\\ this is NO lines: \verb-\begin{tabular}{ccc}-
+	\item horizontal lines with \verb|\hline| or \verb|\toprule, \midrule| from \textbf{booktabs} package
+	\item vertical separators are defined by vertical line in call parameters: \verb-\begin{tabular}{l|c|r|}-;\\ this is NO lines: \verb-\begin{tabular}{ccc}-
 	\item \& is a column separator in code
 	\item each row ends with \verb|\\|
 \end{enumerate}
 
-\medskip
-
 \subsection{Table environments and wizards}
 
-There are several environments to format tables (below is an example of a \hyperlink{wd:desc}{description-style list} mentioned above, and it is a hyperlink to a specific word in the text above; see the source file at GitHub to see how it is coded):
+There are several environments to format tables. They are presented as a \hyperlink{wd:desc}{description-style list} mentioned above, and this is a hyperlink to a specific word in the text above; see the source file at GitHub for how to code it):
 \setlength\fboxsep{3pt} % add a frame around a figure and set its distance from content
 \setlength\fboxrule{1pt} % line width for the frame \fbox{}
 \begin{description}
 	\item[tabular] basic format to stack text horizontally and vertically; is placed as-is in the text, at the position where coded; the width of each column is set with \verb-\begin{tabular}{p{4cm}|c|p{5cm}|}-; even columns with various text placement (left, centre, right): \verb-\begin{tabular}{l|c|r|}-
-	\item[table] a float object tha\usetikzlibrary{calc, positioning, shapes.arrows}t determines best position in text; it can contain virtually anything, but often used to wrap \verb|\begin{tabular}|
+	\item[table] a float object that determines best position in text; it can contain virtually anything, but often used to wrap \verb|\begin{tabular}|
 	\item[tabularx] uses X columns to fit the table to the specified width (\verb-{\begin{tabular}{\textwidth}{X|c|X}-)
 	\item[longtable] imported with \verb|\usepackage{longtable}|; codes tables that span across the page boundary
 
@@ -170,45 +195,48 @@ There are several environments to format tables (below is an example of a \hyper
 
 This code generates Table \ref{tab:mytab}.
 
-\begin{lstlisting}[breaklines]
-\begin{table}[H] % H Places the float at precisely the location in the LATEX code. Requires the float package.
+\bigskip
+
+\begin{tcblisting}{colback=red!5!white, colframe=red!90!black!40,title=\textbf{\textcolor{black}{Source code}},listing only}
+\begin{table}[H]
 	\begin{center}
-		\caption[Table 1 name for List of Tables]{This table does not make much sense; it is created for demonstration only}\label{tab:mytab}
+		\caption[Meaningless table]{This table does not make much sense; it is created for demonstration only}\label{tab:mytab}
 		\begin{tabular}{|c|c|c|c||l|c|c|r|c|c|}
 			\hline
-			1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
-			first & second & \multicolumn{3}{|c|}{third -- fifth} &   &  & eight &   &  \\ 
-			\cline{1-7} \cline{9-10}%\usepackage{pgfplots}
-			%\usepackage{pgfplotstable}
-			1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
-			1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
-			\multirow{3}{*}{three rows}  & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \cline{2-10}
-			& 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ %\cline{2-10}
-			& 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
-		\end{tabular}
-	\end{center}
-	%\caption{You can place the caption below the table}
-\end{table}
-\end{lstlisting}
-
-\begin{table}[H] % H Places the float at precisely the location in the LATEX code. Requires the float package.
-	\begin{center}
-		\caption[Table 1 name for List of Tables]{This floating table does not make much sense; it is created for demonstration only}\label{tab:mytab}
-		\begin{tabular}{|c|c|c|c||l|c|c|r|c|c|}
-			\hline\setlength\fboxsep{3pt} % add a frame around a figure and set its distance from content
-			\setlength\fboxrule{1pt} % line width for the frame \fbox{}
 			1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
 			first & second & \multicolumn{3}{|c|}{third -- fifth} &   &  & eight &   &  \\ 
 			\cline{1-7} \cline{9-10}
 			1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
 			1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
 			\multirow{3}{*}{three rows}  & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \cline{2-10}
-			& 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ %\cline{2-10}
+			& 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
 			& 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
 		\end{tabular}
 	\end{center}
-	% \caption{You can place the caption below the table}
 \end{table}
+\end{tcblisting}
+
+\begin{tcblisting}{colback=green!5!white, colframe=green!75!black!40,title=\textbf{\textcolor{black}{Compiled table}},text only}
+	\begin{table}[H] % H Places the float at precisely the location in the LATEX code. Requires the float package.
+		\begin{center}
+			\caption[Meaningless table]{This table does not make much sense; it is created for demonstration only}\label{tab:mytab}
+			\begin{tabular}{|c|c|c|c||l|c|c|r|c|c|}
+				\hline
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+				first & second & \multicolumn{3}{|c|}{third -- fifth} &   &  & eight &   &  \\ 
+				\cline{1-7} \cline{9-10}%\usepackage{pgfplots}
+				%\usepackage{pgfplotstable}
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+				\multirow{3}{*}{three rows}  & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \cline{2-10}
+				& 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ %\cline{2-10}
+				& 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+			\end{tabular}
+		\end{center}
+		%\caption{You can place the caption below the table}
+	\end{table}
+\end{tcblisting}
+
 
 \section{Graphics and drawing}
 \subsection{Simple commands}
@@ -233,28 +261,19 @@ Notice how you can change \verb|\fbox{}| parameters inside the main code:
 \fbox{\includegraphics[width=50mm]{lines.eps}}
  
 \subsection{Figure environment}
-\begin{lstlisting}[breaklines]
+\begin{lstlisting}
 \begin{figure}[h] % htbp - position preferences (here, top, bottom, page)
-	\includegraphics[scale=1]{cup}
+	\fbox{\includegraphics[scale=1]{cup}}
 	\caption{Publisher's logo}
 	\label{fig:logo}
 \end{figure}
 \end{lstlisting}
 
 \begin{figure}[h] % htbp
-
 		\centering
-		
-		\setlength\fboxsep{5pt}\title{Session 3. Tahttps://tinyurl.com/yf8orxogbles and figures}
-		\author{Digital Skills for Research}
-		\date{\today}
-		
-		% set its distance of the frame \fbox{} from the content
-		\setlength\fboxrule{.2pt} % line width for the frame \fbox{}
-			\fbox{\includegraphics[scale=1]{cup}}
+		\fbox{\includegraphics[scale=1]{cup}}
 		\caption{Publisher's logo}
 		\label{fig:logo}
-	\usetikzlibrary{calc, positioning, shapes.arrows}
 \end{figure}
 
 %\fbox{\textcolor{red}{\rule{1cm}{1cm}}}
@@ -278,7 +297,7 @@ The graphics are put in \verb|\begin{tikzpicture}| environment.
 
 \medskip
 
-To help with calculating coordinates, draw the support grid: \\ \verb|\draw[style=help lines] (-2,0) grid[step=1cm] (8,4);|
+To help with coordinates, draw the support grid: \verb|\draw[style=help lines] (-2,0) grid[step=1cm] (8,4);|
 
 \medskip
 
@@ -291,7 +310,6 @@ For example,
 \begin{lstlisting}
 \begin{tikzpicture}
 	\draw[style=help lines] (-2,0) grid[step=1cm] (8,4);
-	\draw (0,0) -- (1,1);
 	\draw[red, thick] (-2,0) -- (0,3);
 	\draw[blue, very thick] (-1,1) rectangle (2,2);
 	\filldraw[color=red!60, fill=red!5, very thick](4,3) circle (1);
@@ -304,7 +322,6 @@ For example,
 
 \begin{tikzpicture}
 	\draw[style=help lines] (-2,0) grid[step=1cm] (8,4);
-	\draw (0,0) -- (1,1);
 	\draw[red, thick] (-2,0) -- (0,3);
 	\draw[blue, very thick] (-1,1) rectangle (2,2);
 	\filldraw[color=red!60, fill=red!5, very thick](4,3) circle (1);
@@ -325,7 +342,7 @@ NB! It might be easier to draw in Python, inc. saving as .eps
 
 \section*{Task 3. Time-table your pastimes/classes and add pics/graphs}
 \label{task}
-\addcontentsline{toc}{section}{Task 3.}
+\addcontentsline{toc}{section}{Task 3. Time-table with pics}
 
 \begin{tcolorbox}[width=\textwidth, colback={yellow!40!white}, title={}, colbacktitle=yellow!60!white, coltitle=black]
 	\begin{itemize}
@@ -333,9 +350,9 @@ NB! It might be easier to draw in Python, inc. saving as .eps
 		\begin{itemize}
 			\item Make a timetable your pastimes/classes or reproduce a table that compares vector and raster images \href{https://tinyurl.com/yf8orxog}{here}, for example
 			\item no pagination, please!
-			\item add in-text references to both
-			\item create proper captions: Chicago referencing style (as required by Benjamins Publishing house) requires ``Figure captions should be placed below the figure, while table captions should be placed above the relevant table.''
-			\item demonstrate any other efforts to learn about formatting tables and producing graphics 
+			\item add in-text references to both;
+			\item create proper captions: Chicago referencing style (as required by Benjamins  Publishing house) requires ``Figure captions should be placed below the figure, while table captions should be placed above the relevant table.''
+			\item demonstrate any other efforts to learn about tables and graphics 
 		\end{itemize} 
 	\end{itemize}
 	

@@ -1,0 +1,337 @@
+% this is source code for one of the sessions in Digital Skills for Research Workshop (EMTTI, University of Wolverhampton)
+% March 2022, Maria Kunilovskaya (mkunilovskaya@gmail.com)
+
+\documentclass[a4paper,11pt]{article}
+
+% custom link command
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan, filecolor=magenta]{hyperref} 
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=15mm,
+}
+\setlength\parindent{0pt} % set all indents to 0
+
+\usepackage{listings}  % a verbatim environment which can break lines unlike \verb||; load AFTER babel
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{todonotes}
+
+\usepackage{graphicx}  % to add graphics
+\graphicspath{{images/}{pics/}}  % folders with .png, .jpj, .gif, .eps, .pdf
+\usepackage{wrapfig} % put figure inside the text
+\usepackage{caption} % automatic names for graphics; default Figure
+%\captionsetup{labelsep=period} % add a dot after Figure in captions
+
+%--------------------
+% Own commands
+% -------------------
+\newcommand{\myLaTeX}{\LaTeX~}
+
+\renewcommand*{\figurename}{Fig.}
+
+\newcommand{\boxedfig}[1]{%
+	\setlength{\fboxsep}{5pt}%
+	\setlength{\fboxrule}{3pt}%
+	\fbox{\includegraphics[width=\linewidth]{#1}}%
+}
+
+\newenvironment{hello}[1][world]{\noindent Hello #1, }{Bye now!\\} % first [] has number of arguments; second [] has the default value of the first optional argument; second argument is mandatory
+\newcommand{\hi}[2][world]{\noindent Hello #1 and #2}
+
+%Numbered environment with double counter-within
+
+\newcounter{example}
+\counterwithin*{example}{section} % avoid redefining theexample
+\newenvironment{examples}[1][]{\refstepcounter{example}\par\medskip
+	\noindent \textbf{Example~\thesection.\theexample. #1} \rmfamily}{\medskip}
+
+%--------------------
+% Title
+% -------------------
+
+\title{Session 4. Customisation, cross-referencing and templates}
+\author{Digital Skills for Research}
+\date{March 11, 2022}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Customisation and own commands}\label{sec:own}
+
+Usually, there are many ways to skin the \hypertarget{wd:random}{cat}.
+
+Levels of customisation: 
+class files, style files, packages that provide additional commands and environments, own commands and environments + advanced \texttt{xparse} and \texttt{etoolbox} packages for writing own packages
+
+\begin{itemize}
+	\item \verb|\newcommand|: defines a new command; it is a \myLaTeX wrapper on top of \TeX~primitive (\verb|\def|) 
+	\begin{itemize}
+		\item Adding a space after LaTeX default logo command: \\
+		\verb|\newcommand{\myLaTeX}{\LaTeX|$\sim$\}
+		\item \verb|\newenvironment{hello}[1][world]{\noindent Hello #1, }{Bye now!\\}|
+	\end{itemize}
+	\item \verb|\renewcommand|: redefines an existing command
+	\begin{itemize}
+		\item \verb|\renewcommand{\harvardurl}{URL: \url}|
+		\item \verb|\renewcommand{\refname}{Selected Publications 2017-2021}|
+		\item \verb|\renewcommand{\figurename}{Fig.}|
+		\item (re)new(ed) commands/environments can have [optional] and \{mandatory\} arguments: e.g. \verb|\newcommand{\boxedfig}[1]{...}|
+		
+	\end{itemize}
+	\item modify the default parameters (a) globally for the whole document or (b) locally for parts of it: \\ e.g. 
+	\begin{itemize}
+		\item put \verb|\setlength\parindent{0pt}| in preamble to cancel all indentation (or \verb|\noindent| for local effect)
+		\item \verb|\captionsetup{labelsep=period}| to use a dot (not colon) after Fig(ure) 1 in captions
+		\item \verb|\thispagestyle{empty}| on any page to lose the page number (see page \pageref{pg:empty} in this document)
+		\item adding space, changing fonts and text alignment locally with existing commands: \\ 
+		\verb|One {\Large{word}} appears large|
+	\end{itemize}
+	
+\end{itemize}
+
+\clearpage
+
+{\centering 
+	
+	\textbf{Here are a few simple examples \\ Notice and explore the numbering of the examples linked to Sections}
+	
+}
+\begin{examples}
+	This is some text with the default \LaTeX command. \par
+	And this sentence calls the modified \myLaTeX command. \par
+	(Notice the added space after the logo.)
+\end{examples}
+
+\begin{wrapfigure}{r}{0.3333\linewidth}
+	\boxedfig{lines.eps}
+	\caption{Two lines plot in a box}
+	\label{fig:logo}
+\end{wrapfigure}
+
+
+\begin{examples} 
+	\par
+	Two calls of the hello environment:
+	\begin{lstlisting}
+	\begin{hello}
+	nice to meet you.
+	\end{hello}
+	
+	\begin{hello}[Bob]
+	glad you could make it.
+	\end{hello}
+	\end{lstlisting}
+	
+	Output:\\
+	\begin{hello}
+		nice to meet you.
+	\end{hello}
+	\begin{hello}[Bob]
+		glad you could make it.
+	\end{hello}
+\end{examples}
+
+
+
+\begin{examples}
+	\begin{lstlisting}
+		\renewcommand*{\figurename}{Fig}
+		
+		\newcommand{\boxedfig}[1]{%
+		\setlength{\fboxsep}{5pt}%
+		\setlength{\fboxrule}{3pt}%
+		\fbox{\includegraphics[width=\linewidth]{#1}}%
+		}
+	\end{lstlisting}
+	
+	Called as:
+	\begin{lstlisting}
+		\begin{wrapfigure}{r}{0.3333\linewidth}
+			\boxedfig{lines.eps}
+			\caption{Two lines plot in a box}
+			\label{fig:logo}
+		\end{wrapfigure}
+	\end{lstlisting}
+\end{examples}
+
+\textcolor{red}{NB!} Asterisks in commands definitions and per cent signs at the end of lines are safety checks to prevent arguments accedentally containing blank lines or \verb|\par|.
+
+\bigskip
+
+\begin{examples}
+	\verb|\newcommand{\hi}[2][world]{\noindent Hello #1 and #2}| \\
+	called as 	\verb|\hi[Marie][Stephen]| and as \verb|\hi{Stephen}|\\
+	
+	\hi[Marie]{Stephen}
+	
+	\hi{Stephen}
+\end{examples}
+
+\clearpage
+
+\section{Internal and external links}\label{sec:links}
+
+The main package to allow cross-referencing is \verb|\usepackage{hyperref}|.
+
+Types of links:
+
+\begin{itemize}
+	\item Internal links (inc. to individual words): \verb|\label{sec:links} ... \ref{sec:links}|
+	
+	In Section~\ref{sec:links} we used \ldots
+	
+	\item Links to local files: \\ \verb|\href{run:./Pym_2020_translation_solutions_ES>EN.pdf}{Pym's paper (2020)}| 
+	
+	See \href{run:./Pym_2020_translation_solutions_ES>EN.pdf}{Pym's paper (2020)}
+	
+	
+	\item Web addresses: \verb|\href{https://en.wikipedia.org/wiki/LaTeX}{Wiki on Latex}| \\
+and \verb|\url{https://en.wikipedia.org/wiki/LaTeX}| 
+
+	This is what Wikipedia says about Latex: \href{https://en.wikipedia.org/wiki/LaTeX}{Wiki on Latex} or with visible address \url{https://en.wikipedia.org/wiki/LaTeX}
+
+\end{itemize}
+
+\textbf{Custom colours for each type of links (seems to be a paper-friendly solution)}
+
+\begin{lstlisting}[breaklines]
+	\hypersetup{
+		colorlinks=true,
+		linkcolor=blue,
+		filecolor=magenta,      
+		urlcolor=cyan,
+	}
+\end{lstlisting}
+
+% ; load early in the preamble as some packages complain 
+To refer back to a particular word/phrase in the document, use: 
+\begin{lstlisting}[breaklines]
+\hypertarget{wd:cats}{where_to_return} ...
+ \hyperlink{wd:cats}{word_to_make_clickable}
+\end{lstlisting}
+
+\thispagestyle{empty}\label{pg:empty}
+
+In Section~\ref{sec:own}, we talked about some \hyperlink{wd:random}{cats}.
+
+\bigskip
+
+Hide all the clickables (good for printing on paper, but not for an e-document): \\
+\verb|\usepackage[hidelinks]{hyperref}|
+
+\section{Templates and big projects}
+\begin{itemize}
+	\item Many publication venues provide their own \LaTeX templates. It makes sense to keep the original source file (.tex) in the project folder for reference. 
+	\item Notice lack of extensions in imports.
+\end{itemize}
+
+A zipped \LaTeX~template may include the following files (Look into the source code to see another method to produce columns and control their size and positioning):
+
+\medskip
+
+\begin{minipage}[c]{0.65\linewidth}
+	\begin{tcolorbox}[title={Computational Linguistics by MIT Press Journals}]
+		\begin{description}
+			\item[clv3.cls] class file, used in \verb|documentclass{clv3}|
+			\item[alocal.sty] style file (a patch for ArabTeX package) to be imported with \verb|\usepackage{alocal}| if necessary
+			\item[compling.bst] bibliography style file, used as \verb|\bibliographystyle{compling}|
+			\item[compling\_style.bib] example file with bibliography records 
+			\item[COLI-manual3.tex] main source code 
+		\end{description}
+	\end{tcolorbox}
+\end{minipage} 
+\hfill  % comment out space fill if you would like to put them side by side
+\begin{minipage}[c]{0.3\linewidth}
+	\begin{tcolorbox}[title={RANLP conference}]
+		\begin{itemize}
+			\item ranlp2021.sty
+			\item acl\_natbib.bst
+			\item anthology.bib
+			\item ranlp2021.tex
+		\end{itemize}
+	\end{tcolorbox}
+\end{minipage}
+
+\subsection{Principles of working on a multi-part book (like a thesis)}
+
+\begin{itemize}
+	\item Adapting an existing template maybe easier than setting up your own from scratch.
+	\item Using a template implies familiarity with the packages and commands.
+\end{itemize}
+
+\textbf{Specificity of a multi-part book-like project: What is different?}
+
+\begin{itemize}
+	\item parts are typeset in separate files which are imported by the main code which defines overall parameters -- e.g. thesis.tex importing 
+	
+	\begin{lstlisting}
+	\include{contents} 
+	\include{tables}
+	\include{chapters/dedication}
+	\include{chapters/1_intro}
+	\end{lstlisting}
+	
+	\item \verb|\documentclass[12pt,a4paper,twoside,openright]{report}|
+	\item \textcolor{red}{additional elements in text}:
+	
+	\begin{itemize}
+		\item \verb|\usepackage{epigraph} ... \epigraph{}{}|
+		\item headers-footers: 
+			\begin{lstlisting}
+	\usepackage{fancyhdr}
+	\pagestyle{fancy}
+	\fancyhead{}
+	% RO/LE: position of text on odd/even pages
+	\fancyhead[RO,LE]{Thesis Title}	
+			\end{lstlisting}
+			
+		\item \verb|\usepackage{todonotes} ... \todo[inline]{...}|
+		
+		\item a glossary to collect all abbreviations and acronyms \todo[inline]{This comment is generated by a todo[inline] command: Do I need a glossary?}
+		\begin{lstlisting}
+	\usepackage[acronym,automake]{glossaries}
+	\makeglossaries
+		\end{lstlisting}
+		
+		\item code listings using verbatim \verb|usepackage{listings}|
+
+		\begin{lstlisting}
+	\lstinputlisting[language=Python]{argpars.py}
+		\end{lstlisting}
+		
+	\lstinputlisting[language=Python, firstline=2, lastline=15, caption=Types of arguments for a Python script from a file]{argpars.py}
+
+		\begin{lstlisting}[language=Python, caption=Looping thru all folders under 'root']
+		for path, dirs, files in os.walk(args.root):
+		last_folder = os.path.abspath(path).split('/')[-1]
+		for i, file in enumerate(files):
+		filepath = path + os.sep + file
+		
+		\end{lstlisting}
+
+	\end{itemize}
+\end{itemize}
+
+\lstlistoflistings
+
+
+\section*{Task 4. Create a document based on a template}
+\label{task}
+\addcontentsline{toc}{section}{Task 4. Create a document based on a template}
+
+\begin{tcolorbox}[width=\textwidth, colback={yellow!40!white}, title={You can complete any of the following tasks for this session. Each involves selecting a template and exploring the commands it uses by modifying it. Acknowledge the original template (add a link to it)in your source code}, colbacktitle=yellow!60!white, coltitle=black]
+	\begin{itemize}
+		\item Produce a CV using one of the templates \\ \href{here}{https://www.latextemplates.com/cat/curricula-vitae}
+		\item Prepare a mock submission to RANLP using their \href{https://www.overleaf.com/latex/templates/instructions-for-ranlp-2021-proceedings/snyphxfdqcpz}{Overleaf template}
+		\item Explore and set up a multi-chapter phd/master thesis template based on what is \href{https://github.com/snim2/phdtemplate}{provided by the University of Wolverhampton} and (most recently, in Oct 2021) adapted by \href{https://github.com/TharinduDR/Thesis/}{Tharindu Ranasinghe}
+	\end{itemize}
+	
+\end{tcolorbox}%
+
+\end{document}
