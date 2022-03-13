@@ -21,7 +21,7 @@ Maria Kunilovskaya (thanks to the RGCL for the opportunity to brush up and syste
 -   Text formatting
 -   Math
 
-### Week 2. Environments and non-text elements
+### Week 2. Environments, float elements and customisation
 
 #### Session 3. Tables and figures
 
