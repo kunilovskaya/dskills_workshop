@@ -17,23 +17,30 @@
 \definecolor{ForestGreen}{RGB}{0,150,100}
 % grey background useful if you plan to print slides on paper (why would you?)
 \mode<handout>{\beamertemplatesolidbackgroundcolor{black!5}} 
+\usepackage{pgfpages}
+\mode<handout>{\pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]}
 
 \usepackage{ulem} % enables strikeout \sout{text}
 
 %%% encoding and languages
 \usepackage[T1,T2A]{fontenc}
 \usepackage[russian,english]{babel}
+\usepackage{csquotes}
 
 \setbeamertemplate{navigation symbols}{} % hide navigation symbols
 \setbeamertemplate{footline}[frame number]
 
-\usepackage{apalike} % or \usepackage[super]{natbib} + \citep for superscripted intext citations
-% redefine default apalike bst to avoid linebreaks in references
+%\usepackage{apalike} % this is bibtex setting; you can also use \usepackage[super]{natbib} + \citep for superscripted intext citations
+
+% redefine default apalike .bst to avoid icons and linebreaks in references (this does not work with biblatex)
 \setbeamertemplate{bibliography entry note}{}
 \setbeamertemplate{bibliography entry location}{}
 \setbeamertemplate{bibliography entry title}{}
 
-\usepackage{notoccite} % references include all entries in the bib file, not only cited
+% switch to biblatex to remove References that appears in the heading twice; dont' forget to cahnge to \autocite and see end of file
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{7_NLP-tasks-complexity.bib}
+%\addbibresource{7\_NLP-tasks-complexity.bib}  % to use with backend=biber does not work
 
 \usepackage{hyperref} 
 \usepackage{url}
@@ -137,7 +144,7 @@
 		\begin{enumerate}
 			\item Recompile several times - changes in the structure apply after the second compilation sometimes.
 			\item Delete temporary files and recompile (see how in Overleaf).
-			\item The best way to learn is to engage with some existing source code.
+			\item The best way to learn is to engage with existing source code.
 			\item There is always an answer online: check documentation (right-click on package import) and forums.  
 			\begin{itemize}
 				\item asking the right question can be a trick, e.g. (from a forum)
@@ -154,7 +161,8 @@ If it were me, I'd search for \verb|\setbeamertemplate*|. It might use the term 
 \end{frame}
 
 \begin{frame}[fragile]{BEAMER is a class to produce slides}
- \alert{from The User \href{http://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{\color{blue}{\underline{guide}}}~\cite{tantau2022} (to good presentations)}
+% \alert{from The User \href{http://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{\color{blue}{\underline{guide}}}~\cite{tantau2022} (to good presentations)}
+\alert{from The User \href{http://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{\color{blue}{\underline{guide}}}~\autocite{Tantau2022} (to good presentations)}
 	\begin{itemize}
 		\item Start with an inventory of what you can reasonably talk about.
 		\item Do not use more than four sections\footnote{\alert{A lot of respect to anyone who can delete References from the header in this code}}.
@@ -505,7 +513,7 @@ If it were me, I'd search for \verb|\setbeamertemplate*|. It might use the term 
 \end{textblock*}
 \end{frame}
 
-\begin{frame}[fragile]{Gentle into to referencing}
+\begin{frame}[fragile]{Gentle introduction to referencing}
 	
 	\href{https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management}{\beamerbutton{Bibliography Management}}
 	
@@ -542,7 +550,7 @@ If it were me, I'd search for \verb|\setbeamertemplate*|. It might use the term 
 \section[]{ToC-only References}
 
 \begin{frame}{Embedded bibliography}
-	\begin{thebibliography}{}
+	\begin{thebibliography}{99}
 		  \bibitem[\protect\citename{Akmajian and Lehrer, }1976]{akm76}
 		Akmajian \& Lehrer A. 1976. NP-like quantifiers and the
 		problem of determining the head of an NP. {\it Linguistic
@@ -553,11 +561,13 @@ If it were me, I'd search for \verb|\setbeamertemplate*|. It might use the term 
 	\end{thebibliography}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{References}
+\begin{frame}[allowframebreaks,noframenumbering]{Bibliography (everything from file)}
 	(from an external database)
 	\nocite{*}
-	\bibliographystyle{apalike}
-	\bibliography{7_NLP-tasks-complexity}
+%	\bibliographystyle{apalike}
+%	\bibliography{7_NLP-tasks-complexity}
+\printbibliography
+%\printbibliography[heading=none, title={Conference Proceedings}, type=inproceedings]
 \end{frame}
 
 \end{document}

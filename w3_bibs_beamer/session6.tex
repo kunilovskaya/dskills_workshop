@@ -35,15 +35,15 @@
 % intext: \autocite{}, \textcite{knuth1984}, \autocite[\ppno~347--348]{RobertAdams1991}
 % references list: \printbibliography[title=Cited]
 %====================
-%\usepackage[style=authoryear,backend=bibtex]{biblatex}
-%\bibliography{7_NLP-tasks-complexity.bib}
+\usepackage[style=authoryear,backend=biber]{biblatex}
+\addbibresource{7\_NLP-tasks-complexity.bib}
 
 %========================
 % Use bibtex with natbib
 % intext: \citep{}, \citet{}
 % references list (at the end of doc): \bibliography{7_NLP-tasks-complexity.bib}
 %========================
-\usepackage[round,sort,comma]{natbib}
+%\usepackage[round,sort,comma]{natbib}
 
 %\usepackage{notoccite} % uncomment to print all items from .bib
 
@@ -86,7 +86,7 @@ Compare entries for a paper published in conference proceedings (\emph{book form
 NB! Book form (not journal form proceedings) are signalled by an ISBN as opposed to  ISSN for journals, by the presence of editors and no volume number.\\
 \medskip
 Note the use of:
-Two columns:
+
 \begin{multicols}{2}
 	\begin{itemize}
 		\item \verb|&| or `and',
@@ -225,7 +225,7 @@ As shown by Scarton and Specia (2018), ...
 \textbf{Source code}
 \begin{lstlisting}
 \usepackage[style=authoryear,backend=bibtex]{biblatex}
-\bibliography{myrefs.bib}
+\addbibresource{myrefs.bib}
 ...
 \begin{document}
 
@@ -323,7 +323,8 @@ Check out: \href{https://www.mybib.com/tools/harvard-referencing-generator}{Harv
 	
 \end{tcolorbox}%
 
-Just adding three citeations~\citep{Scarton2018} to generate a short References list~\cite[p.~215]{Tani2022}. This is a citetion intergrated in text:~\citet{Alva-Manchego2021}. 
+%Just adding three citeations~\citep{Scarton2018} to generate a short References list~\cite[p.~215]{Tani2022}. This is a citetion intergrated in text:~\citet{Alva-Manchego2021}. 
+Just adding three citeations~\autocite{Scarton2018} to generate a short References list~\textcite[p.~215]{Tani2022}. This is a citetion intergrated in text:~\textcite{Alva-Manchego2021}. 
 
 \bigskip
 
@@ -335,8 +336,8 @@ If you are moving between BibTex and BibLaTex, do delete the temporary files and
 %========================
 % If bibtex with natbib
 %========================
-\bibliographystyle{plainnat}
-\bibliography{7_NLP-tasks-complexity.bib}
+%\bibliographystyle{plainnat}
+%\bibliography{7_NLP-tasks-complexity.bib}
 
 %========================
 % If biblatex
@@ -345,7 +346,7 @@ If you are moving between BibTex and BibLaTex, do delete the temporary files and
 %\renewcommand*{\nameyeardelim}{\addcomma\space}
 %\setlength\bibitemsep{10pt}
 
-%\printbibliography[title=Cited Works]
+\printbibliography[title=Cited Works]
 
 
 \end{document}
