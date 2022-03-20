@@ -21,7 +21,7 @@ Maria Kunilovskaya (thanks to the RGCL for the opportunity to brush up and syste
 -   Text formatting
 -   Math
 
-### Week 2. Environments, float elements and customisation
+### Week 2. Environments and customisation
 
 #### Session 3. Tables and figures
 
@@ -35,7 +35,7 @@ Maria Kunilovskaya (thanks to the RGCL for the opportunity to brush up and syste
 -   Internal and external links
 -   Templates and big projects
 
-### Week 3. Beamer and bibs {#week-3.-beamer-and-bibs .unnumbered}
+### Week 3. Beamer and bibs
 
 #### Session 5. Presentations and posters
 
@@ -62,6 +62,8 @@ Maria Kunilovskaya (thanks to the RGCL for the opportunity to brush up and syste
 - Keeping track of changes
 - Local and remote, push and pull, auth
 - Markdown and arranging repos
+
+*********************************************
 
 ### Housekeeping
 - Canvas: [Materials](https://canvas.wlv.ac.uk/courses/33429/files/folder/latex_mendeley_github); [Schedule](https://wlv.instructure.com/courses/33429/pages/latex-and-mendeley-workshop)
